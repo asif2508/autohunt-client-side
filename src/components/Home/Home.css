@@ -2,10 +2,17 @@
     background-color: black;
 }
 .home-style{
-    background-color: rgba(0, 0, 0, 0.883);
+    background-color: #0B0C10;
     color: white;
+    padding-bottom: 40px;
 }
 .inventory-section{
     margin-top: 80px;
     margin-bottom: 80px;
+}
+.about-us{
+    background-color: #12232E;
+    padding: 40px;
+    margin-top: 50px;
+    margin-bottom: 50px;
 }
