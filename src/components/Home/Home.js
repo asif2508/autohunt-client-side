@@ -60,12 +60,12 @@ const Home = () => {
             </section>
 
             <section className='inventory-section'>
-                <h3 className='mb-3'>Inventory Items</h3>
+                <h2 className='mb-5'>Inventory Items</h2>
                 <div className='inventories'>
                     <Container>
                         <Row className='gy-5'>
                             {
-                                inventories.map(inventory => <InventoryItem
+                                inventories.slice(0,6).map(inventory => <InventoryItem
                                     inventory={inventory}
                                 ></InventoryItem>)
                             }
@@ -76,7 +76,7 @@ const Home = () => {
 
             <section className="brand-section">
                 <Container>
-                    <h3 className="mb-3">Available brands</h3>
+                    <h2 className="mb-3 mt-5">Available brands</h2>
 
                     <Row>
                         <Col xs={6} md={4} lg={2}>

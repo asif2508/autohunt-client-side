@@ -2,3 +2,9 @@
     background-color: #0d1216;
     color: white;
 }
+.social-logo{
+    background-color: rgb(14, 14, 65);
+    padding: 10px;
+    font-size: 18px;
+    border-radius: 10px;
+}

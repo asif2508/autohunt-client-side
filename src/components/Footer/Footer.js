@@ -1,5 +1,8 @@
 import React from 'react';
 import { Col, Container, Row } from 'react-bootstrap';
+import { FontAwesomeIcon} from '@fortawesome/react-fontawesome';
+import { faMapMarkedAlt, faEnvelope, faPhone } from '@fortawesome/free-solid-svg-icons';
+import { faFacebook, faInstagram, faTwitter } from '@fortawesome/free-brands-svg-icons';
 import './Footer.css';
 const Footer = () => {
     return (
@@ -17,9 +20,15 @@ const Footer = () => {
                     <Col xs={12} md={6} lg={4}>
                         <div className='text-start p-5'>
                             <h5>CUSTOMER SERVICE</h5>
-                            <p>info@car.com</p>
-                            <p>240-865-3730</p>
-                            <p>3926 Calvin Street,
+                            <p>
+                            <FontAwesomeIcon className='me-2'icon={faEnvelope}></FontAwesomeIcon>
+                                info@car.com</p>
+                            <p>
+                            <FontAwesomeIcon className='me-2'icon={faPhone}></FontAwesomeIcon>
+                                240-865-3730</p>
+                            <p>
+                            <FontAwesomeIcon className='me-2'icon={faMapMarkedAlt}></FontAwesomeIcon>
+                                3926 Calvin Street,
                             Baltimore, Maryland,
                             21201,
                             United State</p>
@@ -30,6 +39,11 @@ const Footer = () => {
 
                             <h6>All rights reserved by AutoHunt</h6>
                             <p>Copyright © 2022</p>
+                            <div className='d-flex justify-content-start align-items-center'>
+                            <p><FontAwesomeIcon className='me-2 social-logo'icon={faFacebook}></FontAwesomeIcon></p>
+                            <p><FontAwesomeIcon className='me-2 social-logo'icon={faInstagram}></FontAwesomeIcon></p>
+                            <p><FontAwesomeIcon className='me-2 social-logo'icon={faTwitter}></FontAwesomeIcon></p>
+                            </div>
                         </div>
                     </Col>
                 </Row>
