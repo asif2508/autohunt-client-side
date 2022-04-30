@@ -1,10 +1,13 @@
 import React from 'react';
-import { Carousel, Container } from 'react-bootstrap';
+import { Carousel, Container, Row } from 'react-bootstrap';
 import './Home.css';
 import banner1 from '../../images/banner/Rectangle 78.png';
 import banner2 from '../../images/banner/banner2.jpg';
 import banner3 from '../../images/banner/banner3.jpg';
+import useInventory from '../../hooks/useInventory';
+import InventoryItem from '../InventoryItem/InventoryItem';
 const Home = () => {
+    const [inventories] = useInventory();
     return (
         <div className='home-style'>
             <section clasName="banner-section">
@@ -49,7 +52,19 @@ const Home = () => {
                 </Container>
             </section>
 
-            
+            <section className='inventory-section'>
+                <h3 className='mb-3'>Inventory Items</h3>
+                <div className='inventories'>
+                    <Row>
+                        {
+                            inventories.map(inventory => <InventoryItem
+                            inventory = {inventory}
+                            ></InventoryItem>)
+                        }
+                    </Row>
+
+                </div>
+            </section>
         </div>
     );
 };
