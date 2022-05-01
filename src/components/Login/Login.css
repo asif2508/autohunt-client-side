@@ -1,0 +1,26 @@
+.login-style{
+    background-image: linear-gradient(to right top, #051937, #002233, #012729, #1b2a23, #2a2c27);
+    padding-top: 100px;
+    padding-bottom: 150px;
+
+}
+h3{
+    color: white;
+}
+p{
+    color: white;
+}
+.login-form-style{
+    
+    border: 1px solid black;
+    padding: 20px 20px;
+}
+.input-box{
+    border-radius: 30px !important;
+    color: black !important;
+}
+.submit-btn{
+    width: 100%;
+    padding: 9px 0;
+    border-radius: 30px;
+}
