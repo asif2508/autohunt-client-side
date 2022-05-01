@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 const Login = () => {
     return (
         <div className='login-style'>
-            <div className='login-form-style w-25 mx-auto'>
+            <div className='login-form-style mx-auto'>
                 <h3 className='mb-2'>Login</h3>
                 <form>
                     <Form.Floating className="mb-3">
@@ -28,9 +28,9 @@ const Login = () => {
                     </Form.Floating>
                     <div className='d-flex justify-content-between'>
                         <Form.Group className="mt-2" id="formGridCheckbox">
-                            <Form.Check className='text-light' type="checkbox" label="remember me" />
+                            <Form.Check className='text-light' type="checkbox" label="Remember me" />
                         </Form.Group>
-                        <Button variant="link">reset password</Button>
+                        <Button variant="link">Reset Password</Button>
                     </div>
                     <input className='submit-btn mt-1' type="submit" value="Login" />
                 </form>

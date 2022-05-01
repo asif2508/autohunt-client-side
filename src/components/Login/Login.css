@@ -1,7 +1,7 @@
 .login-style{
-    background-image: linear-gradient(to right top, #051937, #002233, #012729, #1b2a23, #2a2c27);
+    background-color: #0B0C10;
     padding-top: 100px;
-    padding-bottom: 150px;
+    padding-bottom: 100px;
 
 }
 h3{
@@ -11,9 +11,11 @@ p{
     color: white;
 }
 .login-form-style{
-    
+    width: 35%;
+    background-image: linear-gradient(to right top, #051937, #002233, #012729, #1b2a23, #2a2c27);
     border: 1px solid black;
-    padding: 20px 20px;
+    padding:20px;
+    border-radius: 30px;
 }
 .input-box{
     border-radius: 30px !important;
