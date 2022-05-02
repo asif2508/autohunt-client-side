@@ -2,6 +2,7 @@ import React from 'react';
 import { Button, Form } from 'react-bootstrap';
 import './Login.css';
 import { Link } from 'react-router-dom';
+import Social from '../Social/Social';
 const Login = () => {
     return (
         <div className='login-style'>
@@ -35,7 +36,9 @@ const Login = () => {
                     <input className='submit-btn mt-1' type="submit" value="Login" />
                 </form>
                 <p className='text-start mt-2'>Don't have an account? <Link to='/register'>Register now</Link></p>
+                <Social></Social>
             </div>
+            
         </div>
     );
 };

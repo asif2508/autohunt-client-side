@@ -25,4 +25,12 @@ p{
     width: 100%;
     padding: 9px 0;
     border-radius: 30px;
+    background-color: black;
+    color: white;
+    border: 1px solid white;
+}
+.submit-btn:hover{
+    background-color: white;
+    color: #002233;
+    border: 1px solid #002233;
 }

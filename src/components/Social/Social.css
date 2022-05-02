@@ -1,0 +1,17 @@
+.line-style{
+    width: 25%;
+    height: 1px;
+    border: 1px solid white;
+}
+.google-size{
+    font-size: 16px;
+}
+.social-login-button{
+    background-color: black;
+    color: white;
+    border: 1px solid white;
+    width: 70%;
+    padding-top: 9px;
+    padding-bottom: 9px;
+    border-radius: 30px;
+}
