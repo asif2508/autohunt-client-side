@@ -15,7 +15,7 @@ const InventoryItem = (props) => {
                     <p>Quantity: {quantity}</p>
                     <p>Price: ${price}</p>
                 </Card.Body>
-                <Link className='mx-auto mt-0 manage-btn' to='/'>manage</Link>
+                <Link className='mx-auto mt-0 manage-btn' to='/'>Update</Link>
             </Card>
         </Col>
     );
