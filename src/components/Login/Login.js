@@ -7,7 +7,7 @@ const Login = () => {
     return (
         <div className='login-style'>
             <div className='login-form-style mx-auto'>
-                <h3 className='mb-2'>Login</h3>
+                <h3 className='mb-3'>Login into Your account</h3>
                 <form>
                     <Form.Floating className="mb-3">
                         <Form.Control
