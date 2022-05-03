@@ -15,3 +15,13 @@
     padding-bottom: 9px;
     border-radius: 30px;
 }
+.social-login-button:hover{
+    background-color: white;
+    color: black;
+    border: 1px solid black;
+}
+.social-login-button:active{
+    background-color: red;
+    color: black;
+    border: 1px solid black;
+}

@@ -3,7 +3,15 @@ import { Button, Form } from 'react-bootstrap';
 import './Login.css';
 import { Link } from 'react-router-dom';
 import Social from '../Social/Social';
+import auth from '../firebase.init';
+import { useSignInWithGoogle } from 'react-firebase-hooks/auth';
+
 const Login = () => {
+    const [signInWithGoogle, user] = useSignInWithGoogle(auth);
+
+    const handleSignInWithGoogle =() =>{
+        signInWithGoogle();
+    }
     return (
         <div className='login-style'>
             <div className='login-form-style mx-auto'>
@@ -36,7 +44,9 @@ const Login = () => {
                     <input className='submit-btn mt-1' type="submit" value="Login" />
                 </form>
                 <p className='text-start mt-2'>Don't have an account? <Link to='/register'>Register now</Link></p>
-                <Social></Social>
+                <Social
+                handleSignInWithGoogle = {handleSignInWithGoogle}
+                ></Social>
             </div>
             
         </div>

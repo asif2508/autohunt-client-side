@@ -17,7 +17,7 @@ const Home = () => {
     const [inventories] = useInventory();
     return (
         <div className='home-style'>
-            <section clasName="banner-section">
+            <section className="banner-section">
                 <Container fluid className='p-0'>
                     <Carousel fade className='p-0'>
                         <Carousel.Item>
