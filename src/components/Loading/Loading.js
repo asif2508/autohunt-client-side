@@ -6,7 +6,6 @@ import './Loading.css';
 const Loading = () => {
     return (
         <div>
-            <Header></Header>
             <div  className='loading-style'>
             <Spinner animation="border" variant="primary" />
             </div>

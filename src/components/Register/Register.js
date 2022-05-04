@@ -1,34 +1,33 @@
 import React, { useState } from 'react';
 import { Button, Form } from 'react-bootstrap';
-import { useCreateUserWithEmailAndPassword, useSendEmailVerification, useSignInWithGoogle } from 'react-firebase-hooks/auth';
+import { useAuthState, useCreateUserWithEmailAndPassword, useSendEmailVerification, useSignInWithGoogle, useUpdateProfile } from 'react-firebase-hooks/auth';
 import { Link, useNavigate } from 'react-router-dom';
+import { toast } from 'react-toastify';
 import auth from '../firebase.init';
 import Loading from '../Loading/Loading';
 import Social from '../Social/Social';
 import './Register.css';
 const Register = () => {
-    const [signInWithGoogle, user, loading, error] = useSignInWithGoogle(auth);
-    const [message, setMessage] = useState('');
     const [
         createUserWithEmailAndPassword,
-        loading1,
-        error1,
+        loading,
+        user,
+        error,
       ] = useCreateUserWithEmailAndPassword(auth);
-    const navigate = useNavigate();
+    const [signInWithGoogle] = useSignInWithGoogle(auth);
+    const [message, setMessage] = useState('');   
     const [checkValue, setCheckValue] = useState(false);
-    const [sendEmailVerification, sending, error2] = useSendEmailVerification(auth);
+    const [sendEmailVerification] = useSendEmailVerification(auth);
+    const [updateProfile, updating] = useUpdateProfile(auth);
+    const navigate = useNavigate();
 
-    if(loading1 || loading){
-        return <Loading></Loading>;
+    if(loading || updating){
+        return <Loading></Loading>
     }
     if(user){
         navigate('/home');
     }
-    const handleSignInWithGoogle =() =>{
-        signInWithGoogle();
-    }
-
-    const handleCreateUser = async event =>{
+    const handleCreateUser = async (event)=>{
         event.preventDefault();
         const name = event.target.name.value;
         const email = event.target.email.value;
@@ -37,6 +36,7 @@ const Register = () => {
         if(password.length >= 6){
             if(password === confirmPassword){
                 await createUserWithEmailAndPassword(email, password);
+                await updateProfile({displayName : name});
                 await sendEmailVerification();
                 
             }else{
@@ -48,6 +48,9 @@ const Register = () => {
         if(user){
             navigate('/home');
         }
+    }
+    const handleSignInWithGoogle =() =>{
+        signInWithGoogle();
     }
     return (
         <div className='register-style'>
@@ -101,7 +104,8 @@ const Register = () => {
                         <Form.Group className="mt-3 mb-2" id="formGridCheckbox">
                             <Form.Check onClick={()=> setCheckValue(!checkValue)} className='text-light text-start' type="checkbox" label="Accept terms and conditions" />
                         </Form.Group>
-                        {(error || error1 || error2) && <p className='text-danger mb-0 text-start'>{error.message}</p>}
+                        
+                        {error && <p className='text-danger mb-0 text-start'>{error.message}</p>}
                         {message && <p className='text-danger mb-0 text-start'>{message}</p>}
                     <input className={!checkValue ? 'w-100 mt-2 register-disabled' : 'submit-btn mt-2'} type="submit" value="Register" disabled={!checkValue}/>
                 </form>
