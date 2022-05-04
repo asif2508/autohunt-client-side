@@ -1,9 +1,9 @@
 import React, { useRef, useState } from 'react';
 import { Button, Form, ToastContainer } from 'react-bootstrap';
 import './Login.css';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import Social from '../Social/Social';
-import auth from '../firebase.init';
+import auth from '../../firebase.init';
 import { useSendPasswordResetEmail, useSignInWithEmailAndPassword, useSignInWithGoogle } from 'react-firebase-hooks/auth';
 import Loading from '../Loading/Loading';
 import { toast } from 'react-toastify';
@@ -21,12 +21,14 @@ const Login = () => {
       const passwordRef = useRef('');
       const [message, setMessage] = useState('');
     const [signInWithGoogle] = useSignInWithGoogle(auth);
-    
+    let location = useLocation();
+
+    let from = location.state?.from?.pathname || "/";
     if(loading ){
         return <Loading></Loading>
     }
     if(user){
-      navigate('/home');;
+        navigate(from, { replace: true });
     }
     
   const handleSignIn =async event =>{

@@ -3,7 +3,7 @@ import { Navbar, Container, Nav } from 'react-bootstrap';
 import logo from '../../images/logo/Navigation/Navigation/car logo.png';
 import {Link} from 'react-router-dom';
 import './Header.css';
-import auth from '../firebase.init';
+import auth from '../../firebase.init';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { signOut } from 'firebase/auth';
 const Header = () => {
@@ -32,7 +32,12 @@ const Header = () => {
                             <Nav.Link as={Link} className='nav-style' to='/blogs'>Blogs</Nav.Link>
                             {
                                 user ? 
-                                <Nav.Link as={Link} onClick={()=> signOut(auth)} className='nav-style' to='/home'>Logout</Nav.Link>
+                                <>
+                                <Nav.Link as={Link} className='nav-style' to='/manageinventories'>ManageItem</Nav.Link>
+                                <Nav.Link as={Link} className='nav-style' to='/additem'>AddItem</Nav.Link>
+                                <Nav.Link as={Link} className='nav-style' to='/myitems'>MyItems</Nav.Link>
+                                <Nav.Link as={Link} onClick={()=> signOut(auth)} className='nav-style' to='/'>Logout</Nav.Link>
+                                </>
                                 :
                                 <Nav.Link as={Link} className='nav-style' to='/login'>Login</Nav.Link>
                             }

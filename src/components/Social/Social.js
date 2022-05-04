@@ -2,17 +2,19 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React from 'react';
 import {faGoogle} from '@fortawesome/free-brands-svg-icons';
 import './Social.css';
-import auth from '../firebase.init';
+import auth from '../../firebase.init';
 import { useAuthState } from 'react-firebase-hooks/auth';
-import { useNavigate } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 
 const Social = ({handleSignInWithGoogle}) => {
     const [user, loading, error] = useAuthState(auth);
     const navigate = useNavigate();
-    if(user){
-        navigate('/home');
-    }
+    let location = useLocation();
 
+    let from = location.state?.from?.pathname || "/"
+    if(user){
+        navigate(from, { replace: true });
+    }
     return (
         <div>
             <div className='d-flex mt-3 align-items-center justify-content-center mb-3'>

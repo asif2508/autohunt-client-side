@@ -33,7 +33,7 @@ const ManageInventories = () => {
                     </tbody>
                 </Table>
                 <div className='mt-3 pb-5'>
-                    <Link className='manage-inventories-btn d-flex align-items-center justify-content-center w-25 mx-auto' to='/manageinventories'>Add new Item
+                    <Link className='manage-inventories-btn d-flex align-items-center justify-content-center w-25 mx-auto' to='/additem'>Add new Item
                         <FontAwesomeIcon className='me-2 ms-2' icon={faLongArrowAltRight}></FontAwesomeIcon>
                     </Link>
                 </div>

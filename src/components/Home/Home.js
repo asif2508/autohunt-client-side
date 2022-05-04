@@ -15,7 +15,7 @@ import brand6 from '../../images/brands/Frame 90.png';
 import about from '../../images/about/Rectangle 110.png';
 import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faArrowAltCircleRight, faLongArrowAltRight } from '@fortawesome/free-solid-svg-icons';
+import { faLongArrowAltRight } from '@fortawesome/free-solid-svg-icons';
 const Home = () => {
     const [inventories] = useInventory();
     return (
