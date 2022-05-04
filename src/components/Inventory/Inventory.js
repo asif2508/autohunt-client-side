@@ -4,6 +4,7 @@ import { Button, Card, Col, Container, Form, Row } from 'react-bootstrap';
 import './Inventory.css';
 const Inventory = () => {
     const { id } = useParams();
+    const [newQuantity, setNewQuantity] = useState(0);
     const [inventory, setInventory] = useState({});
     useEffect(() => {
         const url = `http://localhost:5000/inventory/${id}`;
@@ -12,12 +13,24 @@ const Inventory = () => {
             .then(data => setInventory(data))
     }, []);
     const { _id, name, price, brand, img, quantity, desc, sold } = inventory;
+    const manageDelivery =()=>{
+        if(!newQuantity){
+            const updatedQuantity = quantity - 1;
+            setNewQuantity(updatedQuantity);
+        }
+        else{
+            const updatedQuantity = newQuantity - 1;
+            setNewQuantity(updatedQuantity);
+        }
+        
+    }
+
     return (
         <div className='inventory-page-style'>
             <Container className='p-5'>
                 <Row>
                     <Col xs={12} md={6} lg={6}>
-                        <Card className='inventory-card-style'>
+                        <Card className='inventory-card-style inventory-photo'>
                             <Card.Img variant="top" src={img} />
                             <Card.Body>
                                 <Card.Title className='text-start'>{name}</Card.Title>
@@ -35,11 +48,11 @@ const Inventory = () => {
                                         <Card.Title>Car Full Details</Card.Title>
                                         <Card.Text className='description text-start'>
                                             <p>Supplier name: {brand}</p>
-                                            <p>Quantity: {quantity}</p>
+                                            <p>Quantity: {!newQuantity ? quantity : newQuantity}</p>
                                             <p>Sold: {sold}</p>
                                             <p>Price: ${price}</p>
                                         </Card.Text>
-                                        <button className='manage-btn'>Delivered</button>
+                                        <button onClick={manageDelivery} className='manage-btn'>Delivered</button>
                                     </Card.Body>
                                 </Card>
                             </Col>

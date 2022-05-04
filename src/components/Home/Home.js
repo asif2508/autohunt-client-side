@@ -13,6 +13,9 @@ import brand4 from '../../images/brands/Frame 88.png';
 import brand5 from '../../images/brands/Frame 89.png';
 import brand6 from '../../images/brands/Frame 90.png';
 import about from '../../images/about/Rectangle 110.png';
+import { Link } from 'react-router-dom';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faArrowAltCircleRight, faLongArrowAltRight } from '@fortawesome/free-solid-svg-icons';
 const Home = () => {
     const [inventories] = useInventory();
     return (
@@ -71,7 +74,13 @@ const Home = () => {
                                 ></InventoryItem>)
                             }
                         </Row>
+                        <div className='mt-5'>
+                        <Link className='manage-inventories-btn d-flex align-items-center justify-content-center w-25 mx-auto' to='/manageinventories'>Manage Inventories
+                        <FontAwesomeIcon className='me-2 ms-2'icon={faLongArrowAltRight}></FontAwesomeIcon>
+                        </Link>
+                        </div>
                     </Container>
+                    
                 </div>
             </section>
 

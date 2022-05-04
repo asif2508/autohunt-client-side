@@ -10,6 +10,8 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import { ToastContainer } from 'react-toastify';
 import Inventory from './components/Inventory/Inventory';
 import Blogs from './components/Blogs/Blogs';
+import InventoryDetails from './components/InventoryDetails/InventoryDetails';
+import ManageInventories from './components/ManageInventories/ManageInventories';
 
 
 
@@ -19,7 +21,7 @@ function App() {
       <Header></Header>
       <Routes>
         <Route path='/' element={<Home></Home>}></Route>
-        {/* <Route path='/home' element={<Home></Home>}></Route> */}
+        <Route path='/manageinventories' element={<ManageInventories></ManageInventories>}></Route>
         <Route path='/blogs' element={<Blogs></Blogs> }></Route>
         <Route path='/inventory/:id' element={<Inventory></Inventory>}></Route>
         <Route path='/login' element={<Login></Login>}></Route>
