@@ -1,40 +1,44 @@
+import { faLongArrowAltRight } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React from 'react';
 import { Container, Table } from 'react-bootstrap';
-
+import { Link } from 'react-router-dom';
+import useInventory from '../../hooks/useInventory';
+import InventoryDetails from '../InventoryDetails/InventoryDetails';
+import './ManageInventories.css';
 const ManageInventories = () => {
+    const [inventories] = useInventory();
     return (
-        <div>
+        <div className='manage-inventories-style'>
+            <h3 className='pt-3 mb-3'>Manage Inventories</h3>
             <Container>
                 <Table size="lg" striped bordered hover variant="dark">
                     <thead>
                         <tr>
-                            <th>#</th>
-                            <th>First Name</th>
-                            <th>Last Name</th>
-                            <th>Username</th>
+                            <th>id</th>
+                            <th>Name</th>
+                            <th>Supplier</th>
+                            <th>Price</th>
+                            <th>Quantity</th>
+                            <th>Delete</th>
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <td>1</td>
-                            <td>Mark</td>
-                            <td>Otto</td>
-                            <td>@mdo</td>
-                        </tr>
-                        <tr>
-                            <td>2</td>
-                            <td>Jacob</td>
-                            <td>Thornton</td>
-                            <td>@fat</td>
-                        </tr>
-                        <tr>
-                            <td>3</td>
-                            <td colSpan={2}>Larry the Bird</td>
-                            <td>@twitter</td>
-                        </tr>
+                        {
+                            inventories.map(inventory => <InventoryDetails
+                                key={inventory._id}
+                                inventory={inventory}
+                            ></InventoryDetails>)
+                        }
                     </tbody>
                 </Table>
+                <div className='mt-3 pb-5'>
+                    <Link className='manage-inventories-btn d-flex align-items-center justify-content-center w-25 mx-auto' to='/manageinventories'>Add new Item
+                        <FontAwesomeIcon className='me-2 ms-2' icon={faLongArrowAltRight}></FontAwesomeIcon>
+                    </Link>
+                </div>
             </Container>
+
         </div>
     );
 };
