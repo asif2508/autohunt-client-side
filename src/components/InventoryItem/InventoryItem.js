@@ -3,7 +3,7 @@ import { Button, Card, Col } from 'react-bootstrap';
 import './InventoryItem.css';
 import {Link} from 'react-router-dom';
 const InventoryItem = (props) => {
-    const {name, desc, brand, price, img, quantity} = props.inventory;
+    const {_id,name, desc, brand, price, img, quantity} = props.inventory;
     return (
         <Col xs={12} md={6} lg={4}>
             <Card className='card-style'>
@@ -15,7 +15,7 @@ const InventoryItem = (props) => {
                     <p>Quantity: {quantity}</p>
                     <p>Price: ${price}</p>
                 </Card.Body>
-                <Link className='mx-auto mt-0 manage-btn' to='/'>Update</Link>
+                <Link className='mx-auto mt-0 manage-btn' to={`inventory/${_id}`} >Update</Link>
             </Card>
         </Col>
     );

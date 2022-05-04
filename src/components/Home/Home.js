@@ -66,6 +66,7 @@ const Home = () => {
                         <Row className='gy-5'>
                             {
                                 inventories.slice(0,6).map(inventory => <InventoryItem
+                                    key={inventory._id}
                                     inventory={inventory}
                                 ></InventoryItem>)
                             }

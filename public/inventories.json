@@ -5,7 +5,8 @@
         "price" : 20000,
         "brand" : "Nominee",
         "quantity" : 4,
-        "img" : "https://images.cars.com/cldstatic/wp-content/uploads/ram-1500-limited-2022-exterior-oem-profile-scaled.jpg"
+        "img" : "https://images.cars.com/cldstatic/wp-content/uploads/ram-1500-limited-2022-exterior-oem-profile-scaled.jpg",
+        "sold" : 2
     },
     {
         "name" : "Ram 1500 Longhorn",
@@ -13,6 +14,7 @@
         "price" : 22000,
         "brand" : "Nominee",
         "quantity" : 3,
+        "sold" : 5,
         "img" : "https://images.cars.com/cldstatic/wp-content/uploads/kia-ev6-2022-05-exterior-profile-red-suv-scaled.jpg"
     },
     {
@@ -21,6 +23,7 @@
         "price" : 25000,
         "brand" : "Tesla",
         "quantity" : 10,
+        "sold" : 7,
         "img" : "https://images.cars.com/cldstatic/wp-content/uploads/ford-mustang-mach-e-2022-12-blue-exterior-front-scaled.jpg"
     },
     {
@@ -29,6 +32,7 @@
         "price" : 22000,
         "brand" : "Nominee",
         "quantity" : 7,
+        "sold" : 6,
         "img" : "https://images.cars.com/cldstatic/wp-content/uploads/volvo-xc40-recharge-twin-2022-05-exterior-profile-suv-white-scaled.jpg"
     },
     {
@@ -45,6 +49,7 @@
         "price" : 27000,
         "brand" : "Lotus Emira",
         "quantity" : 4,
+        "sold" : 2,
         "img" : "https://www.topgear.com/sites/default/files/2021/12/01_lotus.jpg?w=827&h=465"
     },
     {
@@ -53,6 +58,7 @@
         "price" : 22000,
         "brand" : "BMW",
         "quantity" : 13,
+        "sold" : 7,
         "img" : "https://www.topgear.com/sites/default/files/2021/12/2bmw.jpg?w=827&h=465"
     },
     {
@@ -69,6 +75,7 @@
         "price" : 29000,
         "brand" : "Ferrari",
         "quantity" : 10,
+        "sold" : 2,
         "img" : "https://www.topgear.com/sites/default/files/2021/12/5ferrari.jpg?w=827&h=465"
     }
 ]
