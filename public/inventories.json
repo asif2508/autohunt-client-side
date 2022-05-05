@@ -1,5 +1,6 @@
 [
-    {
+    {   
+        "email" : "rakibul4210@gmail.com",
         "name" : "2022 Genesis GV70",
         "desc" : "As luxury brands go, South Korea’s Genesis is still in its infancy, having sold its first cars (as an independent Hyundai spinoff), the G80 and G90 sedans, for the 2017 model year.",
         "price" : 20000,
@@ -8,7 +9,8 @@
         "img" : "https://images.cars.com/cldstatic/wp-content/uploads/ram-1500-limited-2022-exterior-oem-profile-scaled.jpg",
         "sold" : 2
     },
-    {
+    {   
+        "email" : "rakibul4210@gmail.com",
         "name" : "Ram 1500 Longhorn",
         "desc" : "As pickup trucks are increasingly used for personal transportation as opposed to just work, they’ve become more upscale, and nowhere is this more evident than in the Ram 1500 Limited Longhorn, a high-end trim level (born from the previously separate Laramie Longhorn and Limited trims) of Ram’s full-size light-duty pickup that we named our Luxury Car of the Year for 2020 and have now nominated both years since. ",
         "price" : 22000,
@@ -17,7 +19,8 @@
         "sold" : 5,
         "img" : "https://images.cars.com/cldstatic/wp-content/uploads/kia-ev6-2022-05-exterior-profile-red-suv-scaled.jpg"
     },
-    {
+    {   
+        "email" : "rakibul4210@gmail.com",
         "name" : "2022 Tesla Model Y",
         "desc" : "Cars.com’s inaugural Best Electric Vehicle award comes at a time when the availability of mass-market EVs is closer than ever to a tipping point. General adoption is still distant because the challenges that limit accessibility.",
         "price" : 25000,
@@ -26,7 +29,8 @@
         "sold" : 7,
         "img" : "https://images.cars.com/cldstatic/wp-content/uploads/ford-mustang-mach-e-2022-12-blue-exterior-front-scaled.jpg"
     },
-    {
+    {   
+        "email" : "rakibul4210@gmail.com",
         "name" : "2Ford Mustang Mach-E",
         "desc" : "The Ford Mustang Mach-E uses inspiration from one of the most iconic nameplates in automotive history to imbue a sense of excitement into the EV, even if it’s mostly skin deep apart from new GT versions.",
         "price" : 22000,
@@ -35,7 +39,8 @@
         "sold" : 6,
         "img" : "https://images.cars.com/cldstatic/wp-content/uploads/volvo-xc40-recharge-twin-2022-05-exterior-profile-suv-white-scaled.jpg"
     },
-    {
+    {   
+        "email" : "rakibul4210@gmail.com",
         "name" : "Volvo XC40 Twin",
         "desc" : "When the original gas-only Volvo XC40 debuted for the 2019 model year, it was an instant favorite and a nominee for our Best of 2019 award thanks to its space efficiency, spunkiness and thoughtful features like an available integrated trash can in the center storage console.",
         "price" : 18000,
@@ -43,7 +48,8 @@
         "quantity" : 5,
         "img" : "https://images.cars.com/cldstatic/wp-content/uploads/hyundai-santa-cruz-limited-awd-02-angle-exterior-front-scaled.jpg"
     },
-    {
+    {   
+        "email" : "rakibul4210@gmail.com",
         "name" : "Lotus Emira (& Evija)",
         "desc" : "The final petrol-powered Lotus launches this year – but it promises to send pistons out with, well, a bang. The Emira is a supercar lookalike for sports car money, and is off to a flier by being so much prettier than Porsche’s ageing Cayman",
         "price" : 27000,
@@ -52,7 +58,8 @@
         "sold" : 2,
         "img" : "https://www.topgear.com/sites/default/files/2021/12/01_lotus.jpg?w=827&h=465"
     },
-    {
+    {   
+        "email" : "rakibul4210@gmail.com",
         "name" : "BMW M3 Touring",
         "desc" : "At bloody last, BMW’s going to build an M3 with a big boot. And like the trolls they are, BMW has only got around to doing it with the most controversial generation of M3 ever. Those grilles. The automatic gearbox.",
         "price" : 22000,
@@ -61,7 +68,8 @@
         "sold" : 7,
         "img" : "https://www.topgear.com/sites/default/files/2021/12/2bmw.jpg?w=827&h=465"
     },
-    {
+    {   
+        "email" : "rakibul4210@gmail.com",
         "name" : "Citroen C5X0",
         "desc" : "Welcome to the only crossover Top Gear is mildly bothered about in 2022: the C5X. Instead of going retro to reinvent the likes of the DS or the SM, Citroen’s new flagship is a sort of high-riding estate available with plug-in hybrid power and seats said to be as squishy as a posh mattress.",
         "price" : 22500,
@@ -69,7 +77,7 @@
         "quantity" : 9,
         "img" : "https://www.topgear.com/sites/default/files/2021/12/3c5.jpg?w=827&h=465"
     },
-    {
+    {   "email" : "rakibul4210@gmail.com",
         "name" : "Ferrari 296 GTB",
         "desc" : "New Ferraris come thick and fast at the moment. We’ll save the more controversial one for later in this dossier, and concentrate right now on the plug-in hybrid 296.",
         "price" : 29000,

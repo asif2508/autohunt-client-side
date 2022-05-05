@@ -1,0 +1,16 @@
+.add-items-style{
+    background-color: #0B0C10;
+    padding-top: 50px;
+    padding-bottom: 100px;
+
+}
+h3{
+    color: white;
+}
+.addItem-form-style{
+    width: 100%;
+    background-image: linear-gradient(to right top, #051937, #002233, #012729, #1b2a23, #2a2c27);
+    border: 1px solid black;
+    padding:25px;
+    border-radius: 30px;
+}

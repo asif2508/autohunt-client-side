@@ -6,6 +6,7 @@ import './Header.css';
 import auth from '../../firebase.init';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { signOut } from 'firebase/auth';
+import CustomLink from '../CustomLink/CustomLink';
 const Header = () => {
     const [user] = useAuthState(auth);
     return (
@@ -28,24 +29,24 @@ const Header = () => {
                             style={{ maxHeight: '100px' }}
                             navbarScroll
                         >
-                            <Nav.Link as={Link} className='nav-style' to='/'>Home</Nav.Link>
-                            <Nav.Link as={Link} className='nav-style' to='/blogs'>Blogs</Nav.Link>
+                            <Nav.Link as={CustomLink} className='nav-style' to='/'>Home</Nav.Link>
+                            <Nav.Link as={CustomLink} className='nav-style' to='/blogs'>Blogs</Nav.Link>
                             {
                                 user ? 
                                 <>
-                                <Nav.Link as={Link} className='nav-style' to='/manageinventories'>ManageItem</Nav.Link>
-                                <Nav.Link as={Link} className='nav-style' to='/additem'>AddItem</Nav.Link>
-                                <Nav.Link as={Link} className='nav-style' to='/myitems'>MyItems</Nav.Link>
+                                <Nav.Link as={CustomLink} className='nav-style' to='/manageinventories'>ManageItem</Nav.Link>
+                                <Nav.Link as={CustomLink} className='nav-style' to='/additem'>AddItem</Nav.Link>
+                                <Nav.Link as={CustomLink} className='nav-style' to='/myitems'>MyItems</Nav.Link>
                                 <Nav.Link as={Link} onClick={()=> signOut(auth)} className='nav-style' to='/'>Logout</Nav.Link>
                                 </>
                                 :
-                                <Nav.Link as={Link} className='nav-style' to='/login'>Login</Nav.Link>
+                                <Nav.Link as={CustomLink} className='nav-style' to='/login'>Login</Nav.Link>
                             }
                             {
                                 user ? 
                                 ''
                                 :
-                                <Nav.Link as={Link} className='nav-style' to='/register'>Register</Nav.Link>
+                                <Nav.Link as={CustomLink} className='nav-style' to='/register'>Register</Nav.Link>
                             }
                         </Nav>
                     </Navbar.Collapse>
