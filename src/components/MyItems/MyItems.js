@@ -13,7 +13,21 @@ const MyItems = () => {
         fetch(url)
         .then(res => res.json())
         .then(data => setMyitems(data))
-    },[user])
+    },[user, myItems])
+
+    const handleDeleteItem = id =>{
+        fetch(`http://localhost:5000/manageinventories/${id}`, {
+                method: 'DELETE',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({id}),
+            })
+                .then(response => response.json())
+                .then(data => {
+                    console.log(data);
+                })
+    }
     return (
         <div className=' myitem-page-style pb-5 pt-3'>
             <Container>
@@ -22,6 +36,7 @@ const MyItems = () => {
                  key={item.id}
                  item={item}
                  user={user}
+                 handleDeleteItem={handleDeleteItem}
                  ></MyItem>)
               
             }

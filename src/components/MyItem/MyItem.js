@@ -2,16 +2,16 @@ import React from 'react';
 import { Card, Button, Col, Row, Image } from 'react-bootstrap';
 import './MyItem.css';
 
-const MyItem = ({ item, user }) => {
+const MyItem = ({ item, user, handleDeleteItem }) => {
     const { _id, name, brand, quantity, desc, price, sold, img } = item;
     return (
         <div className='mt-3'>
             <Card className='inventory-card-style'>
-                <Card.Header className='card-header-style' as="h5">Item Added by you</Card.Header>
+                <Card.Header as="h5">Item Added by you</Card.Header>
                 <Card.Body>
                     <Row>
                         <Col xs={12} md={6} lg={6}>
-                            <Image  src={img} fluid></Image>
+                            <Image className='p-3' src={img} fluid></Image>
                         </Col>
                         <Col xs={12} md={6} lg={6}>
                             <Card.Title className='text-start'>Name: {name}</Card.Title>
@@ -20,8 +20,8 @@ const MyItem = ({ item, user }) => {
                                 <p>Added by: {user?.email}</p>
                                 <p>Supplier: {brand}</p>
                                 <p>Description: {desc}</p>
-                                <div className='d-flex justify-content-around'>
-                                <p>Price: {price}</p>
+                                <div className='d-flex justify-content-between'>
+                                <p>Price: ${price}</p>
                                 <p>Quantity: {quantity}</p>
                                 <p>Sold: {sold}</p>
                                 </div>
@@ -29,7 +29,7 @@ const MyItem = ({ item, user }) => {
                             </Card.Text>
                         </Col>
                     </Row>
-                    {/* <Button className='myitem-delete' variant="primary">Delete</Button> */}
+                    <Button onClick={()=>handleDeleteItem(_id)} className='myitem-delete' variant="primary">Delete</Button>
                 </Card.Body>
             </Card>
         </div>
