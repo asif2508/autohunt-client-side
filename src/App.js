@@ -21,6 +21,7 @@ import RequiredAuth from './components/RequiredAuth/RequiredAuth';
 function App() {
   return (
     <div className="App">
+      <div>
       <Header></Header>
       <Routes>
         <Route path='/' element={<Home></Home>}></Route>
@@ -49,6 +50,7 @@ function App() {
         <Route path='/register' element={<Register></Register>}></Route>
         <Route path='*' element={<NotFound></NotFound>}></Route>
       </Routes>
+      </div>
       
       <Footer></Footer>
     </div>
