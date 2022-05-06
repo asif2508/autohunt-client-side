@@ -1,0 +1,9 @@
+.myitem-page-style{
+    background-color: #0B0C10;
+    color: white;
+}
+.myitem-delete:hover{
+    background-color: white;
+    border: 1px solid #0d6efd;
+    color: #0d6efd;
+}
