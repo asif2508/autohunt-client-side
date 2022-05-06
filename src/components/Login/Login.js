@@ -1,12 +1,13 @@
 import React, { useRef, useState } from 'react';
-import { Button, Form, ToastContainer } from 'react-bootstrap';
+import { Button, Form } from 'react-bootstrap';
 import './Login.css';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import Social from '../Social/Social';
 import auth from '../../firebase.init';
 import { useSendPasswordResetEmail, useSignInWithEmailAndPassword, useSignInWithGoogle } from 'react-firebase-hooks/auth';
 import Loading from '../Loading/Loading';
-import { toast } from 'react-toastify';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const Login = () => {
     const [
@@ -43,7 +44,9 @@ const Login = () => {
       const email = emailRef.current.value;
       if(email){
           await sendPasswordResetEmail(email);
+          setMessage('');
           toast("Password reset email sent!");
+          
       }
       else{
           setMessage("Enter your email!");
@@ -77,13 +80,13 @@ const Login = () => {
                         />
                         <label htmlFor="floatingPasswordCustom">Password</label>
                     </Form.Floating>
-                    {error && <p className='text-start text-danger'>{error.message}</p> }
-                    {message && <p className='text-start text-danger'>{message}</p> }
+                    {error && <p className='text-start text-danger mb-0 mt-2'>{error.message}</p> }
+                    {message && <p className='text-start text-danger  mb-0 mt-2'>{message}</p> }
                     <div className='d-flex justify-content-between'>
                         <Form.Group className="mt-2" id="formGridCheckbox">
                             <Form.Check className='text-light' type="checkbox" label="Remember me" />
                         </Form.Group>
-                        <Button onClick={handlePasswordReset} variant="link">Reset Password</Button>
+                        <a className='reset-pass' onClick={handlePasswordReset}>Reset Password</a>
                     </div>
                     <input className='submit-btn mt-1' type="submit" value="Login" />
                 </form>

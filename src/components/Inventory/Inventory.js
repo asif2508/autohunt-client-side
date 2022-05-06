@@ -2,29 +2,51 @@ import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { Button, Card, Col, Container, Form, Row } from 'react-bootstrap';
 import './Inventory.css';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 const Inventory = () => {
     const { id } = useParams();
-    const [newQuantity, setNewQuantity] = useState(0);
     const [inventory, setInventory] = useState({});
     useEffect(() => {
         const url = `http://localhost:5000/inventory/${id}`;
         fetch(url)
             .then(res => res.json())
             .then(data => setInventory(data))
-    }, []);
+    }, [inventory]);
     const { _id, name, price, brand, img, quantity, desc, sold } = inventory;
-    const manageDelivery =()=>{
-        if(!newQuantity){
-            const updatedQuantity = quantity - 1;
-            setNewQuantity(updatedQuantity);
-        }
-        else{
-            const updatedQuantity = newQuantity - 1;
-            setNewQuantity(updatedQuantity);
-        }
-        
+
+    const updateReq = ( id, data) =>{
+        fetch(`http://localhost:5000/inventory/${id}`, {
+            method: 'PUT',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(data),
+        })
+            .then((response) => response.json())
+            .then((data) => {
+                console.log('Success:', data);
+            })
+
+    }
+    const manageDelivery = id => {
+        const newQuantity = quantity-1;
+        const newSold = sold + 1;
+        const data = {quantity : newQuantity, sold : newSold}
+        updateReq(id, data);
+        toast('Car has been delivered!');
     }
 
+    const handleIncreaseQuantity = event =>{
+        event.preventDefault();
+        const number = event.target.add.value;
+        const updatedQuantity = quantity + parseInt(number);
+        console.log(number);
+        const data = {quantity : updatedQuantity};
+        updateReq(id, data);
+        event.target.reset();
+        toast('Car Quantity increased successfully!');    
+    }
     return (
         <div className='inventory-page-style'>
             <Container className='p-5'>
@@ -48,21 +70,21 @@ const Inventory = () => {
                                         <Card.Title>Car Full Details</Card.Title>
                                         <Card.Text className='description text-start'>
                                             <p>Supplier name: {brand}</p>
-                                            <p>Quantity: {!newQuantity ? quantity : newQuantity}</p>
+                                            <p>Quantity: {quantity}</p>
                                             <p>Sold: {sold}</p>
                                             <p>Price: ${price}</p>
                                         </Card.Text>
-                                        <button onClick={manageDelivery} className='manage-btn'>Delivered</button>
+                                        <button onClick={() => manageDelivery(_id)} className='manage-btn'>Delivered</button>
                                     </Card.Body>
                                 </Card>
                             </Col>
                             <Col xs={12} md={12} lg={12}>
                                 <div className='inventory-card-style mt-3 p-3 h-100'>
                                     <h3 className='mb-3'>Restock Items</h3>
-                                    <form className='w-50 mx-auto'>
+                                    <form onSubmit={handleIncreaseQuantity} className='w-50 mx-auto'>
                                         <Form.Group className="mb-3 text-start" controlId="formBasicNumber">
                                             <Form.Label >Number of Items</Form.Label>
-                                            <Form.Control type="number" placeholder="Enter Quantity" />
+                                            <Form.Control name='add' type="number" placeholder="Enter Quantity" />
                                         </Form.Group>
                                         <input className='manage-btn' type="submit" value="Increase" />
                                     </form>
@@ -72,6 +94,7 @@ const Inventory = () => {
                         </Row>
                     </Col>
                 </Row>
+                <ToastContainer/>
             </Container>
         </div>
     );

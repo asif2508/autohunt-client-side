@@ -101,12 +101,12 @@ const Register = () => {
                         />
                         <label htmlFor="floatingPasswordCustom">Confirm Password</label>
                     </Form.Floating>
+                    {error && <p className='text-danger  mb-0 mt-2 text-start'>{error.message}</p>}
+                        {message && <p className='text-danger  mb-0 mt-2 text-start'>{message}</p>}
                         <Form.Group className="mt-3 mb-2" id="formGridCheckbox">
                             <Form.Check onClick={()=> setCheckValue(!checkValue)} className='text-light text-start' type="checkbox" label="Accept terms and conditions" />
                         </Form.Group>
                         
-                        {error && <p className='text-danger mb-0 text-start'>{error.message}</p>}
-                        {message && <p className='text-danger mb-0 text-start'>{message}</p>}
                     <input className={!checkValue ? 'w-100 mt-2 register-disabled' : 'submit-btn mt-2'} type="submit" value="Register" disabled={!checkValue}/>
                 </form>
                 <p className='text-start mt-2'>Already have an account? <Link to='/login'>Login</Link></p>
