@@ -5,11 +5,37 @@ import auth from '../../firebase.init';
 import './AddItem.css';
 const AddItem = () => {
     const [user, loading] = useAuthState(auth);
+
+    const handleAddItem = event =>{
+        event.preventDefault();
+        const name = event.target.name.value;
+        const email = event.target.email.value;
+        const brand = event.target.brand.value;
+        const desc = event.target.desc.value;
+        const price = event.target.price.value;
+        const quantity = event.target.quantity.value;
+        const sold = event.target.sold.value;
+        const img = event.target.img.value;
+        const data ={email, name, brand, desc, price, quantity, sold, img};
+        fetch('http://localhost:5000/additems', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(data),
+            })
+                .then(response => response.json())
+                .then(data => {
+                    console.log(data);
+                })
+        event.target.reset();
+
+    }
     return (
         <div className='add-items-style'>
             <Container>
                 <h3>Add Items</h3>
-                <form className='addItem-form-style mx-auto p-3'>
+                <form onSubmit={handleAddItem} className='addItem-form-style mx-auto p-3'>
                     {/* <p>Name</p> */}
                    <Row>
                        <Col xs={12} md={6} lg={6}>
@@ -24,7 +50,7 @@ const AddItem = () => {
                         controlId="floatingInput"
                         label="Car Name"
                         className="mb-3">
-                        <Form.Control type="name" name='name' placeholder="Car Name" />
+                        <Form.Control type="name" name='name' placeholder="Car Name" required/>
                     </FloatingLabel>
                     <FloatingLabel
                         controlId="floatingInput"

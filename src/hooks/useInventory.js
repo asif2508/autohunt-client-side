@@ -6,7 +6,7 @@ const useInventory = () =>{
         fetch('http://localhost:5000/inventory')
         .then(res => res.json())
         .then(data => setInventories(data))
-    },[])
+    },[inventories])
     return [inventories, setInventories];
 }
 export default useInventory;

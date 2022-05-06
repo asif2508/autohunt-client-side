@@ -4,8 +4,7 @@ import './MyItem.css';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import auth from '../../firebase.init';
 
-const MyItem = ({ item }) => {
-    const [user, loading, error] = useAuthState(auth);
+const MyItem = ({ item, user }) => {
     const { _id, name, brand, quantity, desc, price, sold, img } = item;
     return (
         <div className='mt-3'>

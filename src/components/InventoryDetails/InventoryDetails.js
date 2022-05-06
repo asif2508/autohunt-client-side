@@ -2,8 +2,9 @@ import { faTrash } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React from 'react';
 import './InventoryDetails.css';
-const InventoryDetails = (props) => {
-    const { _id, name, price, brand, quantity} = props.inventory;
+const InventoryDetails = ({inventory, handleDeleteItem}) => {
+    const { _id, name, price, brand, quantity} =inventory;
+   
     return (
             <tr>
                 <td>{_id}</td>
@@ -11,7 +12,7 @@ const InventoryDetails = (props) => {
                 <td>{brand}</td>
                 <td>{price}</td>
                 <td>{quantity}</td>
-                <td><button className='delete-btn'>
+                <td><button onClick={()=>handleDeleteItem(_id)} className='delete-btn'>
                     <FontAwesomeIcon icon={faTrash}></FontAwesomeIcon>
                     </button></td>
             </tr>
