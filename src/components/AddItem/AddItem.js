@@ -1,8 +1,10 @@
 import React from 'react';
-import { Col, Container, FloatingLabel, Form, Row } from 'react-bootstrap';
+import { Col, Container, FloatingLabel, Form, Row} from 'react-bootstrap';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import auth from '../../firebase.init';
 import './AddItem.css';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 const AddItem = () => {
     const [user, loading] = useAuthState(auth);
 
@@ -29,7 +31,8 @@ const AddItem = () => {
                     console.log(data);
                 })
         event.target.reset();
-
+        toast('Information added successfully');
+        
     }
     return (
         <div className='add-items-style'>
@@ -99,6 +102,7 @@ const AddItem = () => {
                     
                 </form>
             </Container>
+            <ToastContainer/>
         </div>
     );
 };

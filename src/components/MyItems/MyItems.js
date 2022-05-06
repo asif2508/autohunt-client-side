@@ -15,9 +15,8 @@ const MyItems = () => {
         .then(data => setMyitems(data))
     },[user])
     return (
-        <div className=' myitem-page-style '>
+        <div className=' myitem-page-style pb-5 pt-3'>
             <Container>
-                <h3 className='pt-2'>Items You have added</h3>
             {
                  myItems.map(item => <MyItem
                  key={item.id}

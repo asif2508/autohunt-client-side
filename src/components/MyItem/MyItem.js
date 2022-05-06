@@ -7,27 +7,29 @@ const MyItem = ({ item, user }) => {
     return (
         <div className='mt-3'>
             <Card className='inventory-card-style'>
-                <Card.Header as="h5">Item Added by you</Card.Header>
+                <Card.Header className='card-header-style' as="h5">Item Added by you</Card.Header>
                 <Card.Body>
                     <Row>
                         <Col xs={12} md={6} lg={6}>
-                            <Image className='p-3' src={img} fluid></Image>
+                            <Image  src={img} fluid></Image>
                         </Col>
                         <Col xs={12} md={6} lg={6}>
                             <Card.Title className='text-start'>Name: {name}</Card.Title>
                             <Card.Text className='text-start'>
                                 <p>Id: {_id}</p>
-                                {/* <p>Added by: {user?.email}</p> */}
+                                <p>Added by: {user?.email}</p>
                                 <p>Supplier: {brand}</p>
                                 <p>Description: {desc}</p>
+                                <div className='d-flex justify-content-around'>
                                 <p>Price: {price}</p>
                                 <p>Quantity: {quantity}</p>
                                 <p>Sold: {sold}</p>
+                                </div>
 
                             </Card.Text>
                         </Col>
                     </Row>
-                    <Button className='myitem-delete' variant="primary">Delete</Button>
+                    {/* <Button className='myitem-delete' variant="primary">Delete</Button> */}
                 </Card.Body>
             </Card>
         </div>
