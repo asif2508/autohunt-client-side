@@ -1,8 +1,6 @@
 import React from 'react';
 import { Card, Button, Col, Row, Image } from 'react-bootstrap';
 import './MyItem.css';
-import { useAuthState } from 'react-firebase-hooks/auth';
-import auth from '../../firebase.init';
 
 const MyItem = ({ item, user }) => {
     const { _id, name, brand, quantity, desc, price, sold, img } = item;
@@ -19,7 +17,7 @@ const MyItem = ({ item, user }) => {
                             <Card.Title className='text-start'>Name: {name}</Card.Title>
                             <Card.Text className='text-start'>
                                 <p>Id: {_id}</p>
-                                <p>Added by: {user?.email}</p>
+                                {/* <p>Added by: {user?.email}</p> */}
                                 <p>Supplier: {brand}</p>
                                 <p>Description: {desc}</p>
                                 <p>Price: {price}</p>

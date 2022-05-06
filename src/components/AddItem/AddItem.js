@@ -8,8 +8,8 @@ const AddItem = () => {
 
     const handleAddItem = event =>{
         event.preventDefault();
+        const email = user?.email;
         const name = event.target.name.value;
-        const email = event.target.email.value;
         const brand = event.target.brand.value;
         const desc = event.target.desc.value;
         const price = event.target.price.value;
