@@ -1,4 +1,3 @@
-import { async } from '@firebase/util';
 import React, { useEffect, useState } from 'react';
 import { Container } from 'react-bootstrap';
 import { useAuthState } from 'react-firebase-hooks/auth';

@@ -16,8 +16,12 @@ import about from '../../images/about/Rectangle 110.png';
 import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faLongArrowAltRight } from '@fortawesome/free-solid-svg-icons';
+import Loading from '../Loading/Loading';
 const Home = () => {
     const [inventories] = useInventory();
+    if(!inventories){
+        return <Loading></Loading>
+    }
     return (
         <div className='home-style'>
             <section className="banner-section">

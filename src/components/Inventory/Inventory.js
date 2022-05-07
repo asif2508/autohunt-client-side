@@ -15,7 +15,7 @@ const Inventory = () => {
     }, [inventory]);
     const { _id, name, price, brand, img, quantity, desc, sold } = inventory;
 
-    const updateReq = ( id, data) =>{
+    const updateReq = (id, data) => {
         fetch(`http://localhost:5000/inventory/${id}`, {
             method: 'PUT',
             headers: {
@@ -30,22 +30,26 @@ const Inventory = () => {
 
     }
     const manageDelivery = id => {
-        const newQuantity = quantity-1;
-        const newSold = sold + 1;
-        const data = {quantity : newQuantity, sold : newSold}
-        updateReq(id, data);
-        toast('Car has been delivered!');
+        if (quantity <= 0) {
+            toast('No car available to delever');
+        } else {
+            const newQuantity = quantity - 1;
+            const newSold = sold + 1;
+            const data = { quantity: newQuantity, sold: newSold }
+            updateReq(id, data);
+            toast('Car has been delivered!');
+        }
     }
 
-    const handleIncreaseQuantity = event =>{
+    const handleIncreaseQuantity = event => {
         event.preventDefault();
         const number = event.target.add.value;
         const updatedQuantity = quantity + parseInt(number);
         console.log(number);
-        const data = {quantity : updatedQuantity};
+        const data = { quantity: updatedQuantity };
         updateReq(id, data);
         event.target.reset();
-        toast('Car Quantity increased successfully!');    
+        toast('Car Quantity increased successfully!');
     }
     return (
         <div className='inventory-page-style'>
@@ -94,7 +98,7 @@ const Inventory = () => {
                         </Row>
                     </Col>
                 </Row>
-                <ToastContainer/>
+                <ToastContainer />
             </Container>
         </div>
     );
