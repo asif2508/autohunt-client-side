@@ -31,13 +31,13 @@ const Login = () => {
     if (user) {
         navigate(from, { replace: true });
     }
-    const postReq =async ()=>{
+    const postReq =async (email)=>{
         await fetch('http://localhost:5000/login', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
                 },
-                body: JSON.stringify({user}),
+                body: JSON.stringify({email}),
             })
                 .then(response => response.json())
                 .then(data => {
@@ -50,7 +50,7 @@ const Login = () => {
         const email = emailRef.current.value;
         const password = passwordRef.current.value;
         await signInWithEmailAndPassword(email, password);
-        postReq();
+        await postReq(email);
     }
 
     const handlePasswordReset = async event => {
