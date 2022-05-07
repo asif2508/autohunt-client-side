@@ -30,6 +30,7 @@ const Header = () => {
                             navbarScroll
                         >
                             <Nav.Link as={CustomLink} className='nav-style' to='/'>Home</Nav.Link>
+                            <Nav.Link as={CustomLink} className='nav-style' to='/statistics'>Status</Nav.Link>
                             <Nav.Link as={CustomLink} className='nav-style' to='/blogs'>Blogs</Nav.Link>
                             {
                                 user ? 

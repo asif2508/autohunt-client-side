@@ -7,14 +7,13 @@ import Login from './components/Login/Login';
 import NotFound from './components/NotFound/NotFound';
 import Register from './components/Register/Register';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { ToastContainer } from 'react-toastify';
 import Inventory from './components/Inventory/Inventory';
 import Blogs from './components/Blogs/Blogs';
-import InventoryDetails from './components/InventoryDetails/InventoryDetails';
 import ManageInventories from './components/ManageInventories/ManageInventories';
 import AddItem from './components/AddItem/AddItem';
 import MyItems from './components/MyItems/MyItems';
 import RequiredAuth from './components/RequiredAuth/RequiredAuth';
+import Statistics from './components/Statistics/Statistics';
 
 
 
@@ -46,6 +45,7 @@ function App() {
           </RequiredAuth>
         }></Route>
         <Route path='/blogs' element={<Blogs></Blogs> }></Route>
+        <Route path='/statistics' element={<Statistics></Statistics>}></Route>
         <Route path='/login' element={<Login></Login>}></Route>
         <Route path='/register' element={<Register></Register>}></Route>
         <Route path='*' element={<NotFound></NotFound>}></Route>
