@@ -8,16 +8,16 @@ const MyItems = () => {
     const [user, loading, error] = useAuthState(auth);
     const [myItems, setMyitems] = useState([]);
     useEffect(() => {
-            const email = user?.email;
-            const url = `http://localhost:5000/myitems/${email}`;
+        const email = user?.email;
+        const url = `http://localhost:5000/myitems/${email}`;
 
-            fetch(url, {
-                headers: {
-                    'authorization': `Bearer ${localStorage.getItem('accessToken')}`
-                }
-            })
-                .then(res => res.json())
-                .then(data => setMyitems(data))
+        fetch(url, {
+            headers: {
+                'authorization': `Bearer ${localStorage.getItem('accessToken')}`
+            }
+        })
+            .then(res => res.json())
+            .then(data => setMyitems(data))
     }, [user])
 
     const handleDeleteItem = id => {
