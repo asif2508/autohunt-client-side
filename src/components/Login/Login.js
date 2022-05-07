@@ -32,6 +32,7 @@ const Login = () => {
         navigate(from, { replace: true });
     }
     const postReq =async (email)=>{
+        console.log(email);
         await fetch('http://localhost:5000/login', {
                 method: 'POST',
                 headers: {
@@ -68,6 +69,7 @@ const Login = () => {
     }
     const handleSignInWithGoogle = () => {
         signInWithGoogle();
+        postReq({email : "forJwtSocialLoginError"})
     }
     return (
         <div className='login-style'>

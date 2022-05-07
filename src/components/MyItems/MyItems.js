@@ -40,7 +40,7 @@ const MyItems = () => {
             <Container>
                 {
                     myItems.map(item => <MyItem
-                        key={item.id}
+                        key={item._id}
                         item={item}
                         user={user}
                         handleDeleteItem={handleDeleteItem}
