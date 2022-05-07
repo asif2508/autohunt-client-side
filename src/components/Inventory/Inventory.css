@@ -12,3 +12,8 @@
 .inventory-photo{
     height: 35.75rem !important;
 }
+@media screen and (max-width: 576px) {
+    .inventory-photo{
+        height: 30.88rem !important;
+    }
+}

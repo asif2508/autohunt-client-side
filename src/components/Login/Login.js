@@ -102,7 +102,7 @@ const Login = () => {
                         <Form.Group className="mt-2" id="formGridCheckbox">
                             <Form.Check className='text-light' type="checkbox" label="Remember me" />
                         </Form.Group>
-                        <a className='reset-pass' onClick={handlePasswordReset}>Reset Password</a>
+                        <a className='reset-pass mt-2' onClick={handlePasswordReset}>Reset Password</a>
                     </div>
                     <input className='submit-btn mt-1' type="submit" value="Login" />
                 </form>

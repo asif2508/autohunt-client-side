@@ -7,7 +7,7 @@ const InventoryDetails = ({inventory, handleDeleteItem}) => {
    
     return (
             <tr>
-                <td>{_id}</td>
+                {/* <td>{_id}</td> */}
                 <td>{name}</td>
                 <td>{brand}</td>
                 <td>{price}</td>

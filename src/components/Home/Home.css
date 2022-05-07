@@ -18,6 +18,7 @@
 }
 .manage-inventories-btn{
     background-color: #0d6efd;
+    width: 25%;
     color: white;
     text-decoration: none;
     padding: 15px 28px;
@@ -32,4 +33,9 @@
 .brand-section{
     padding-top: 20px;
     padding-bottom: 50px;
+}
+@media screen and (max-width: 576px) {
+    .manage-inventories-btn{
+        width: 90% !important;
+    }
 }

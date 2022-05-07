@@ -28,12 +28,13 @@ const ManageInventories = () => {
     }
     return (
         <div className='manage-inventories-style'>
-            <h3 className='pt-3 mb-3'>Manage Inventories</h3>
+            
             <Container>
-                <Table size="lg" striped bordered hover variant="dark">
+                <h3 className='pt-3 mb-3'>Manage Inventories</h3>
+                <Table className='table-width' size="lg" striped bordered hover variant="dark">
                     <thead>
                         <tr>
-                            <th>id</th>
+                            {/* <th>id</th> */}
                             <th>Name</th>
                             <th>Supplier</th>
                             <th>Price</th>

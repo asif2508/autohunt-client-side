@@ -34,8 +34,8 @@ const Home = () => {
                                 alt="First slide"
                             />
                             <Carousel.Caption>
-                                <h3>Hunt Your Favorite Model Car</h3>
-                                <p>We are selling the car of your favourite brand. So jump in and have a great deal.</p>
+                                <h3>Hunt Your Favorite Car</h3>
+                                <p>We are selling the car of your favourite brand.</p>
                             </Carousel.Caption>
                         </Carousel.Item>
                         <Carousel.Item>
@@ -79,7 +79,7 @@ const Home = () => {
                             }
                         </Row>
                         <div className='mt-5'>
-                        <Link className='manage-inventories-btn d-flex align-items-center justify-content-center w-25 mx-auto' to='/manageinventories'>Manage Inventories
+                        <Link className='manage-inventories-btn d-flex align-items-center justify-content-center mx-auto' to='/manageinventories'>Manage Inventories
                         <FontAwesomeIcon className='me-2 ms-2'icon={faLongArrowAltRight}></FontAwesomeIcon>
                         </Link>
                         </div>

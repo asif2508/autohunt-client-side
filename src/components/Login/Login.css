@@ -38,3 +38,10 @@ p{
    color: red;
    cursor: pointer;
 }
+
+@media screen and (max-width: 576px) {
+    .login-form-style{
+        width: 95%;
+    }
+    
+}

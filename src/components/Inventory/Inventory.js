@@ -54,7 +54,7 @@ const Inventory = () => {
     return (
         <div className='inventory-page-style'>
             <Container className='p-5'>
-                <Row>
+                <Row className='g-3'>
                     <Col xs={12} md={6} lg={6}>
                         <Card className='inventory-card-style inventory-photo'>
                             <Card.Img variant="top" src={img} />
