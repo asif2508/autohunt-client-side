@@ -30,8 +30,8 @@ const Home = () => {
                                 alt="First slide"
                             />
                             <Carousel.Caption>
-                                <h3>First slide label</h3>
-                                <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
+                                <h3>Hunt Your Favorite Model Car</h3>
+                                <p>We are selling the car of your favourite brand. So jump in and have a great deal.</p>
                             </Carousel.Caption>
                         </Carousel.Item>
                         <Carousel.Item>
@@ -42,8 +42,8 @@ const Home = () => {
                             />
 
                             <Carousel.Caption>
-                                <h3>Second slide label</h3>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                                <h3>Hunt Your Dream</h3>
+                                <p>Your Dream car is waiting for you. what are you waiting for?</p>
                             </Carousel.Caption>
                         </Carousel.Item>
                         <Carousel.Item>
@@ -54,8 +54,8 @@ const Home = () => {
                             />
 
                             <Carousel.Caption>
-                                <h3>Third slide label</h3>
-                                <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur.</p>
+                                <h3>Hunt Your Choice</h3>
+                                <p>We are giving you a lot of choices at a great discount.</p>
                             </Carousel.Caption>
                         </Carousel.Item>
                     </Carousel>
