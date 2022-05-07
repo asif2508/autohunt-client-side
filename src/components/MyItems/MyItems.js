@@ -8,7 +8,7 @@ const MyItems = () => {
     const [myItems, setMyitems] = useState([]);
     useEffect(() => {
         const email = user?.email;
-        const url = `http://localhost:5000/myitems/${email}`;
+        const url = `https://enigmatic-sands-65553.herokuapp.com/myitems/${email}`;
 
         fetch(url, {
             headers: {
@@ -22,7 +22,7 @@ const MyItems = () => {
     const handleDeleteItem = id => {
         const confirmation = window.confirm('Are you sure?');
         if (confirmation) {
-            fetch(`http://localhost:5000/manageinventories/${id}`, {
+            fetch(`https://enigmatic-sands-65553.herokuapp.com/manageinventories/${id}`, {
                 method: 'DELETE',
                 headers: {
                     'Content-Type': 'application/json',

@@ -8,7 +8,7 @@ const Inventory = () => {
     const { id } = useParams();
     const [inventory, setInventory] = useState({});
     useEffect(() => {
-        const url = `http://localhost:5000/inventory/${id}`;
+        const url = `https://enigmatic-sands-65553.herokuapp.com/inventory/${id}`;
         fetch(url)
             .then(res => res.json())
             .then(data => setInventory(data))
@@ -16,7 +16,7 @@ const Inventory = () => {
     const { _id, name, price, brand, img, quantity, desc, sold } = inventory;
 
     const updateReq = (id, data) => {
-        fetch(`http://localhost:5000/inventory/${id}`, {
+        fetch(`https://enigmatic-sands-65553.herokuapp.com/inventory/${id}`, {
             method: 'PUT',
             headers: {
                 'Content-Type': 'application/json',

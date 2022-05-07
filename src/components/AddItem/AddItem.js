@@ -19,7 +19,7 @@ const AddItem = () => {
         const sold = event.target.sold.value;
         const img = event.target.img.value;
         const data ={email, name, brand, desc, price, quantity, sold, img};
-        fetch('http://localhost:5000/additems', {
+        fetch('https://enigmatic-sands-65553.herokuapp.com/additems', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',

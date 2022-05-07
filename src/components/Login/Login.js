@@ -33,7 +33,7 @@ const Login = () => {
     }
     const postReq =async (email)=>{
         console.log(email);
-        await fetch('http://localhost:5000/login', {
+        await fetch('https://enigmatic-sands-65553.herokuapp.com/login', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',

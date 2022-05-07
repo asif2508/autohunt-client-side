@@ -9,12 +9,12 @@ import './ManageInventories.css';
 const ManageInventories = () => {
     const [inventories, setInventories] = useState([]);
     useEffect(()=>{
-        fetch('http://localhost:5000/inventory')
+        fetch('https://enigmatic-sands-65553.herokuapp.com/inventory')
         .then(res => res.json())
         .then(data => setInventories(data))
     },[inventories])
     const handleDeleteItem = id =>{
-        fetch(`http://localhost:5000/manageinventories/${id}`, {
+        fetch(`https://enigmatic-sands-65553.herokuapp.com/manageinventories/${id}`, {
                 method: 'DELETE',
                 headers: {
                     'Content-Type': 'application/json',
