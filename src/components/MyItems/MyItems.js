@@ -18,20 +18,23 @@ const MyItems = () => {
         })
             .then(res => res.json())
             .then(data => setMyitems(data))
-    }, [user])
+    }, [myItems])
 
     const handleDeleteItem = id => {
-        fetch(`http://localhost:5000/manageinventories/${id}`, {
-            method: 'DELETE',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify({ id }),
-        })
-            .then(response => response.json())
-            .then(data => {
-                console.log(data);
+        const confirmation = window.confirm('Are you sure?');
+        if (confirmation) {
+            fetch(`http://localhost:5000/manageinventories/${id}`, {
+                method: 'DELETE',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ id }),
             })
+                .then(response => response.json())
+                .then(data => {
+                    console.log(data);
+                })
+        }
     }
     return (
         <div className=' myitem-page-style pb-5 pt-3'>
