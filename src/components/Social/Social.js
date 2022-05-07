@@ -7,7 +7,7 @@ import { useAuthState } from 'react-firebase-hooks/auth';
 import { useLocation, useNavigate } from 'react-router-dom';
 
 const Social = ({handleSignInWithGoogle}) => {
-    const [user, loading, error] = useAuthState(auth);
+    const [user] = useAuthState(auth);
     const navigate = useNavigate();
     let location = useLocation();
 

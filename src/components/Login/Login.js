@@ -15,44 +15,58 @@ const Login = () => {
         user,
         loading,
         error,
-      ] = useSignInWithEmailAndPassword(auth);
-      const [sendPasswordResetEmail] = useSendPasswordResetEmail(auth);
-      const navigate = useNavigate();
-      const emailRef = useRef('');
-      const passwordRef = useRef('');
-      const [message, setMessage] = useState('');
+    ] = useSignInWithEmailAndPassword(auth);
+    const [sendPasswordResetEmail] = useSendPasswordResetEmail(auth);
+    const navigate = useNavigate();
+    const emailRef = useRef('');
+    const passwordRef = useRef('');
+    const [message, setMessage] = useState('');
     const [signInWithGoogle] = useSignInWithGoogle(auth);
     let location = useLocation();
 
     let from = location.state?.from?.pathname || "/";
-    if(loading ){
+    if (loading) {
         return <Loading></Loading>
     }
-    if(user){
+    if (user) {
         navigate(from, { replace: true });
     }
-    
-  const handleSignIn =async event =>{
-      event.preventDefault();
-      const email = emailRef.current.value;
-      const password = passwordRef.current.value;
-      await signInWithEmailAndPassword(email, password);
+    const postReq =async ()=>{
+        await fetch('http://localhost:5000/login', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({user}),
+            })
+                .then(response => response.json())
+                .then(data => {
+                    console.log(data);
+                    localStorage.setItem("accessToken", data.token);
+                })
+        }
+    const handleSignIn = async event => {
+        event.preventDefault();
+        const email = emailRef.current.value;
+        const password = passwordRef.current.value;
+        await signInWithEmailAndPassword(email, password);
+        postReq();
     }
 
-  const handlePasswordReset = async event =>{
-      event.preventDefault();
-      const email = emailRef.current.value;
-      if(email){
-          await sendPasswordResetEmail(email);
-          setMessage('');
-          toast("Password reset email sent!");
-          
-      }
-      else{
-          setMessage("Enter your email!");
-      }
-  }
-    const handleSignInWithGoogle =() =>{
+    const handlePasswordReset = async event => {
+        event.preventDefault();
+        const email = emailRef.current.value;
+        if (email) {
+            await sendPasswordResetEmail(email);
+            setMessage('');
+            toast("Password reset email sent!");
+
+        }
+        else {
+            setMessage("Enter your email!");
+        }
+    }
+    const handleSignInWithGoogle = () => {
         signInWithGoogle();
     }
     return (
@@ -80,8 +94,8 @@ const Login = () => {
                         />
                         <label htmlFor="floatingPasswordCustom">Password</label>
                     </Form.Floating>
-                    {error && <p className='text-start text-danger mb-0 mt-2'>{error.message}</p> }
-                    {message && <p className='text-start text-danger  mb-0 mt-2'>{message}</p> }
+                    {error && <p className='text-start text-danger mb-0 mt-2'>{error.message}</p>}
+                    {message && <p className='text-start text-danger  mb-0 mt-2'>{message}</p>}
                     <div className='d-flex justify-content-between'>
                         <Form.Group className="mt-2" id="formGridCheckbox">
                             <Form.Check className='text-light' type="checkbox" label="Remember me" />
@@ -92,10 +106,10 @@ const Login = () => {
                 </form>
                 <p className='text-start mt-2'>Don't have an account? <Link to='/register'>Register now</Link></p>
                 <Social
-                handleSignInWithGoogle = {handleSignInWithGoogle}
+                    handleSignInWithGoogle={handleSignInWithGoogle}
                 ></Social>
             </div>
-            <ToastContainer/>
+            <ToastContainer />
         </div>
     );
 };
