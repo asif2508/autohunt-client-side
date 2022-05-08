@@ -8,6 +8,7 @@ import { useSendPasswordResetEmail, useSignInWithEmailAndPassword, useSignInWith
 import Loading from '../Loading/Loading';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import useToken from '../../hooks/useToken';
 
 const Login = () => {
     const [
@@ -21,37 +22,23 @@ const Login = () => {
     const emailRef = useRef('');
     const passwordRef = useRef('');
     const [message, setMessage] = useState('');
-    const [signInWithGoogle] = useSignInWithGoogle(auth);
+    const [signInWithGoogle, user1] = useSignInWithGoogle(auth);
+    const [token] = useToken(user || user1);
     let location = useLocation();
 
     let from = location.state?.from?.pathname || "/";
     if (loading) {
         return <Loading></Loading>
     }
-    if (user) {
+    if (token) {
         navigate(from, { replace: true });
     }
-    const postReq =async (email)=>{
-        console.log(email);
-        await fetch('https://enigmatic-sands-65553.herokuapp.com/login', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify({email}),
-            })
-                .then(response => response.json())
-                .then(data => {
-                    console.log(data);
-                    localStorage.setItem("accessToken", data.token);
-                })
-        }
+    
     const handleSignIn = async event => {
         event.preventDefault();
         const email = emailRef.current.value;
         const password = passwordRef.current.value;
         await signInWithEmailAndPassword(email, password);
-        await postReq(email);
     }
 
     const handlePasswordReset = async event => {
@@ -69,7 +56,6 @@ const Login = () => {
     }
     const handleSignInWithGoogle = () => {
         signInWithGoogle();
-        postReq({email : "forJwtSocialLoginError"})
     }
     return (
         <div className='login-style'>
@@ -109,6 +95,7 @@ const Login = () => {
                 <p className='text-start mt-2'>Don't have an account? <Link to='/register'>Register now</Link></p>
                 <Social
                     handleSignInWithGoogle={handleSignInWithGoogle}
+                    token={token}
                 ></Social>
             </div>
             <ToastContainer />

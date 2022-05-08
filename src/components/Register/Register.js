@@ -4,27 +4,29 @@ import { useAuthState, useCreateUserWithEmailAndPassword, useSendEmailVerificati
 import { Link, useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import auth from '../../firebase.init';
+import useToken from '../../hooks/useToken';
 import Loading from '../Loading/Loading';
 import Social from '../Social/Social';
 import './Register.css';
 const Register = () => {
     const [
         createUserWithEmailAndPassword,
-        loading,
         user,
-        error,
+        loading,
+        error
       ] = useCreateUserWithEmailAndPassword(auth);
-    const [signInWithGoogle] = useSignInWithGoogle(auth);
+    const [signInWithGoogle, user1] = useSignInWithGoogle(auth);
     const [message, setMessage] = useState('');   
     const [checkValue, setCheckValue] = useState(false);
     const [sendEmailVerification] = useSendEmailVerification(auth);
     const [updateProfile, updating] = useUpdateProfile(auth);
     const navigate = useNavigate();
+    const [token] = useToken(user || user1);
 
-    if(loading || updating){
+    if(loading){
         return <Loading></Loading>
     }
-    if(user){
+    if(token){
         navigate('/');
     }
     const handleCreateUser = async (event)=>{
@@ -44,9 +46,6 @@ const Register = () => {
             }
         }else{
             setMessage('Password length should be at least 6!');
-        }
-        if(user){
-            navigate('/');
         }
     }
     const handleSignInWithGoogle =() =>{
@@ -112,6 +111,7 @@ const Register = () => {
                 <p className='text-start mt-2'>Already have an account? <Link to='/login'>Login</Link></p>
                 <Social
                 handleSignInWithGoogle = {handleSignInWithGoogle}
+                token={token}
                 ></Social>
             </div>
             

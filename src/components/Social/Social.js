@@ -5,14 +5,14 @@ import './Social.css';
 import auth from '../../firebase.init';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { useLocation, useNavigate } from 'react-router-dom';
+import useToken from '../../hooks/useToken';
 
-const Social = ({handleSignInWithGoogle}) => {
-    const [user] = useAuthState(auth);
+const Social = ({handleSignInWithGoogle, token}) => {
     const navigate = useNavigate();
     let location = useLocation();
 
     let from = location.state?.from?.pathname || "/"
-    if(user){
+    if(token){
         navigate(from, { replace: true });
     }
     return (
