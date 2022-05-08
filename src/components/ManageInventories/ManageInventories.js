@@ -31,10 +31,10 @@ const ManageInventories = () => {
             
             <Container>
                 <h3 className='pt-3 mb-3'>Manage Inventories</h3>
-                <Table className='table-width' size="lg" striped bordered hover variant="dark">
+                <Table responsive striped bordered hover variant="dark">
                     <thead>
                         <tr>
-                            {/* <th>id</th> */}
+                            <th>id</th>
                             <th>Name</th>
                             <th>Supplier</th>
                             <th>Price</th>
@@ -53,7 +53,7 @@ const ManageInventories = () => {
                     </tbody>
                 </Table>
                 <div className='mt-3 pb-5'>
-                    <Link className='manage-inventories-btn d-flex align-items-center justify-content-center w-25 mx-auto' to='/additem'>Add new Item
+                    <Link className='manage-inventories-btn d-flex align-items-center justify-content-center mx-auto' to='/additem'>Add new Item
                         <FontAwesomeIcon className='me-2 ms-2' icon={faLongArrowAltRight}></FontAwesomeIcon>
                     </Link>
                 </div>
