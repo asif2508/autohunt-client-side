@@ -9,27 +9,31 @@ import PageTitle from '../PageTitle/PageTitle';
 import './ManageInventories.css';
 const ManageInventories = () => {
     const [inventories, setInventories] = useState([]);
-    useEffect(()=>{
+    useEffect(() => {
         fetch('https://enigmatic-sands-65553.herokuapp.com/inventory')
-        .then(res => res.json())
-        .then(data => setInventories(data))
-    },[inventories])
-    const handleDeleteItem = id =>{
-        fetch(`https://enigmatic-sands-65553.herokuapp.com/manageinventories/${id}`, {
+            .then(res => res.json())
+            .then(data => setInventories(data))
+    }, [inventories])
+    const handleDeleteItem = id => {
+        const confirmation = window.confirm('Are you sure?');
+        if (confirmation) {
+            fetch(`https://enigmatic-sands-65553.herokuapp.com/manageinventories/${id}`, {
                 method: 'DELETE',
                 headers: {
                     'Content-Type': 'application/json',
                 },
-                body: JSON.stringify({id}),
+                body: JSON.stringify({ id }),
             })
                 .then(response => response.json())
                 .then(data => {
                     console.log(data);
                 })
+        }
+
     }
     return (
         <div className='manage-inventories-style'>
-                  <PageTitle title="Manage Inventory"></PageTitle>
+            <PageTitle title="Manage Inventory"></PageTitle>
             <Container>
                 <h3 className='pt-3 mb-3'>Manage Inventories</h3>
                 <Table responsive striped bordered hover variant="dark">
@@ -48,7 +52,7 @@ const ManageInventories = () => {
                             inventories.map(inventory => <InventoryDetails
                                 key={inventory._id}
                                 inventory={inventory}
-                                handleDeleteItem ={handleDeleteItem}
+                                handleDeleteItem={handleDeleteItem}
                             ></InventoryDetails>)
                         }
                     </tbody>
