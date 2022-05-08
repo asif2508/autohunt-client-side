@@ -1,11 +1,14 @@
 import React, { useEffect, useState } from 'react';
 import { Container } from 'react-bootstrap';
 import { useAuthState } from 'react-firebase-hooks/auth';
+import { useNavigate } from 'react-router-dom';
 import auth from '../../firebase.init';
 import MyItem from '../MyItem/MyItem';
+import { signOut } from 'firebase/auth';
 const MyItems = () => {
     const [user, loading, error] = useAuthState(auth);
     const [myItems, setMyitems] = useState([]);
+    const naviagate = useNavigate();
     useEffect(() => {
         const email = user?.email;
         const url = `https://enigmatic-sands-65553.herokuapp.com/myitems/${email}`;
@@ -14,9 +17,23 @@ const MyItems = () => {
             headers: {
                 'authorization': `Bearer ${localStorage.getItem('accessToken')}`
             }
+        }).then((response) => {
+            if (response.ok) {
+                return response.json()
+            }
+            else{
+                if(response.status === 401 || response.status === 403){
+                    signOut(auth)
+                    naviagate('/login');
+
+                }
+            }
         })
-            .then(res => res.json())
             .then(data => setMyitems(data))
+            .catch((error) => {
+                console.log(error)
+              });
+
     }, [myItems])
 
     const handleDeleteItem = id => {
