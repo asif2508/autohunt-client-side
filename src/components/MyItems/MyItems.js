@@ -5,6 +5,7 @@ import { useNavigate } from 'react-router-dom';
 import auth from '../../firebase.init';
 import MyItem from '../MyItem/MyItem';
 import { signOut } from 'firebase/auth';
+import PageTitle from '../PageTitle/PageTitle';
 const MyItems = () => {
     const [user, loading, error] = useAuthState(auth);
     const [myItems, setMyitems] = useState([]);
@@ -21,8 +22,8 @@ const MyItems = () => {
             if (response.ok) {
                 return response.json()
             }
-            else{
-                if(response.status === 401 || response.status === 403){
+            else {
+                if (response.status === 401 || response.status === 403) {
                     signOut(auth)
                     naviagate('/login');
 
@@ -32,7 +33,7 @@ const MyItems = () => {
             .then(data => setMyitems(data))
             .catch((error) => {
                 console.log(error)
-              });
+            });
 
     }, [myItems])
 
@@ -54,6 +55,7 @@ const MyItems = () => {
     }
     return (
         <div className=' myitem-page-style pb-5 pt-3'>
+            <PageTitle title="My Items"></PageTitle>
             <Container>
                 {
                     myItems.map(item => <MyItem

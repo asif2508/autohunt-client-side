@@ -6,6 +6,7 @@ import { toast } from 'react-toastify';
 import auth from '../../firebase.init';
 import useToken from '../../hooks/useToken';
 import Loading from '../Loading/Loading';
+import PageTitle from '../PageTitle/PageTitle';
 import Social from '../Social/Social';
 import './Register.css';
 const Register = () => {
@@ -53,6 +54,7 @@ const Register = () => {
     }
     return (
         <div className='register-style'>
+                  <PageTitle title="Register"></PageTitle>
             <div className='login-form-style mx-auto'>
                 <h3 className='mb-3'>Create a New account</h3>
                 <form onSubmit={handleCreateUser}>

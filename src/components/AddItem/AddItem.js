@@ -5,6 +5,7 @@ import auth from '../../firebase.init';
 import './AddItem.css';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import PageTitle from '../PageTitle/PageTitle';
 const AddItem = () => {
     const [user, loading] = useAuthState(auth);
 
@@ -36,6 +37,7 @@ const AddItem = () => {
     }
     return (
         <div className='add-items-style'>
+                  <PageTitle title="Add Item"></PageTitle>
             <Container>
                 <h3>Add Items</h3>
                 <form onSubmit={handleAddItem} className='addItem-form-style mx-auto p-3'>

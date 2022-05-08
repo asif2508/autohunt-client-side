@@ -9,6 +9,7 @@ import Loading from '../Loading/Loading';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import useToken from '../../hooks/useToken';
+import PageTitle from '../PageTitle/PageTitle';
 
 const Login = () => {
     const [
@@ -59,6 +60,7 @@ const Login = () => {
     }
     return (
         <div className='login-style'>
+                  <PageTitle title="Login"></PageTitle>
             <div className='login-form-style mx-auto'>
                 <h3 className='mb-3'>Login into Your account</h3>
                 <form onSubmit={handleSignIn}>

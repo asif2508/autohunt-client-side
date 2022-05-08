@@ -5,6 +5,7 @@ import { Container, Table } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import useInventory from '../../hooks/useInventory';
 import InventoryDetails from '../InventoryDetails/InventoryDetails';
+import PageTitle from '../PageTitle/PageTitle';
 import './ManageInventories.css';
 const ManageInventories = () => {
     const [inventories, setInventories] = useState([]);
@@ -28,7 +29,7 @@ const ManageInventories = () => {
     }
     return (
         <div className='manage-inventories-style'>
-            
+                  <PageTitle title="Manage Inventory"></PageTitle>
             <Container>
                 <h3 className='pt-3 mb-3'>Manage Inventories</h3>
                 <Table responsive striped bordered hover variant="dark">

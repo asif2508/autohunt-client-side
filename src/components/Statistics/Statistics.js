@@ -2,12 +2,13 @@ import React from 'react';
 import { Container, Row, Col } from 'react-bootstrap';
 import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer, BarChart, Bar } from 'recharts';
 import useInventory from '../../hooks/useInventory';
+import PageTitle from '../PageTitle/PageTitle';
 import './Statistics.css';
 const Statistics = () => {
     const [inventories] = useInventory();
-    console.log(inventories)
     return (
         <div>
+                  <PageTitle title="Dashboard"></PageTitle>
             <Container>
                 <Row>
                 <Col xs={12} md={12} lg={12} className='chart-color'>

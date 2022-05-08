@@ -17,6 +17,7 @@ import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faLongArrowAltRight } from '@fortawesome/free-solid-svg-icons';
 import Loading from '../Loading/Loading';
+import PageTitle from '../PageTitle/PageTitle';
 const Home = () => {
     const [inventories] = useInventory();
     if(!inventories){
@@ -24,6 +25,7 @@ const Home = () => {
     }
     return (
         <div className='home-style'>
+                  <PageTitle title="Home"></PageTitle>
             <section className="banner-section">
                 <Container fluid className='p-0'>
                     <Carousel fade className='p-0'>
