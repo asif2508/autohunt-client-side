@@ -71,6 +71,7 @@ const Login = () => {
                             placeholder="name@example.com"
                             className='input-box'
                             ref={emailRef}
+                            required
                         />
                         <label htmlFor="floatingInputCustom">Email address</label>
                     </Form.Floating>
@@ -81,6 +82,7 @@ const Login = () => {
                             placeholder="Password"
                             className='input-box'
                             ref={passwordRef}
+                            required
                         />
                         <label htmlFor="floatingPasswordCustom">Password</label>
                     </Form.Floating>

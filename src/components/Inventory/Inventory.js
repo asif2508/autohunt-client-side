@@ -4,6 +4,7 @@ import { Button, Card, Col, Container, Form, Row } from 'react-bootstrap';
 import './Inventory.css';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import PageTitle from '../PageTitle/PageTitle';
 const Inventory = () => {
     const { id } = useParams();
     const [inventory, setInventory] = useState({});
@@ -53,6 +54,7 @@ const Inventory = () => {
     }
     return (
         <div className='inventory-page-style'>
+            <PageTitle title="Update Inventory"></PageTitle>
             <Container className='p-5'>
                 <Row className='g-3'>
                     <Col xs={12} md={6} lg={6}>
